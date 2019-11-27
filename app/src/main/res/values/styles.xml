@@ -25,4 +25,9 @@
         <item name="mrl_rippleColor">@color/colorPrimary</item>
     </style>
 
+    <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+
 </resources>

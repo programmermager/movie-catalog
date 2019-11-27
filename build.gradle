@@ -29,12 +29,12 @@ task clean(type: Delete) {
 
 ext{
     gsonVersion = '2.8.0'
-    okhttpVersion = '3.6.0'
-    retrofitVersion = '2.2.0'
-    stethoVersion = '1.4.2'
+    okhttpVersion = '4.2.1'
+    retrofitVersion = '2.6.2'
+    stethoVersion = '1.5.1'
     supportLibraryVersion='28.0.0'
     constraintLayoutVersion='1.0.2'
     glideVersion='4.3.1'
-    butterKnifeVersion='8.6.0'
+    butterKnifeVersion='10.0.0'
 
 }

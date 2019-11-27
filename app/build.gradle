@@ -3,12 +3,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "id.alfth.std.pilpres2019"
+        applicationId "id.bdp.baseapp"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -25,24 +25,29 @@ android {
     productFlavors {
         dev {
             dimension "alfthstd"
-            applicationId 'com.app.pasticketdev'
+            applicationId 'id.bdp.baseappdev'
             buildConfigField "String", "BASE_URL", '"https://api-sandbox.tiket.com/"'
         }
         prod {
             dimension "alfthstd"
-            applicationId "com.app.pasticket"
+            applicationId "id.bdp.baseapp"
             buildConfigField "String", "BASE_URL", '"https://api.tiket.com/"'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
     implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
@@ -54,8 +59,8 @@ dependencies {
     implementation "com.facebook.stetho:stetho:$rootProject.ext.stethoVersion"
     implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stethoVersion"
 
-    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.wang.avi:library:2.1.3'
     implementation 'com.balysv:material-ripple:1.0.2'
@@ -64,5 +69,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.5'
 
     implementation 'id.zelory:compressor:2.1.0'
-    implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
+
+    implementation 'com.github.jkwiecien:EasyImage:2.0.2'
+    implementation 'com.github.yalantis:ucrop:2.2.1'
 }

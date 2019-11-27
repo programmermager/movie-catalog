@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <id.alfth.std.pilpres2019.util.view.TouchImageView
+    <id.bdp.baseapp.util.view.TouchImageView
         android:id="@+id/image_preview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
