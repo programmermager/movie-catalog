@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "id.bdp.baseapp"
+        applicationId "id.lima.baseapp"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
@@ -25,12 +25,12 @@ android {
     productFlavors {
         dev {
             dimension "alfthstd"
-            applicationId 'id.bdp.baseappdev'
+            applicationId 'id.lima.baseappdev'
             buildConfigField "String", "BASE_URL", '"https://api-sandbox.tiket.com/"'
         }
         prod {
             dimension "alfthstd"
-            applicationId "id.bdp.baseapp"
+            applicationId "id.lima.baseapp"
             buildConfigField "String", "BASE_URL", '"https://api.tiket.com/"'
         }
     }
@@ -50,6 +50,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
@@ -72,4 +74,7 @@ dependencies {
 
     implementation 'com.github.jkwiecien:EasyImage:2.0.2'
     implementation 'com.github.yalantis:ucrop:2.2.1'
+
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }
