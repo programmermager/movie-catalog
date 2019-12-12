@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="server_error">Something went wrong, please try again</string>
+    <string name="connection_error">Sepertinya koneksi anda bermasalah, mohon cek koneksi internet anda terlebih dahulu</string>
 </resources>
