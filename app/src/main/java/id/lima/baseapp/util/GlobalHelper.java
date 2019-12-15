@@ -1,18 +1,25 @@
 package id.lima.baseapp.util;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -27,7 +34,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import id.lima.baseapp.util.view.LoadingWindow;
+import id.lima.baseapp.R;
 import retrofit2.Call;
 
 /**
@@ -39,7 +46,7 @@ public class GlobalHelper {
     public static GlobalHelper instance;
 
     private static String TAG = GlobalHelper.class.getSimpleName();
-    private static LoadingWindow loading;
+    private static Dialog loading;
 
     public static GlobalHelper getInstance() {
         if (instance == null)
@@ -70,9 +77,12 @@ public class GlobalHelper {
 
     public void loadLoading(Context context) {
         if (loading == null) {
-            loading = new LoadingWindow(context);
+            loading = new Dialog(context);
+            loading.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             loading.setCancelable(false);
             loading.setCanceledOnTouchOutside(false);
+            loading.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            loading.setContentView(R.layout.loading);
             loading.show();
         }
     }
@@ -163,6 +173,18 @@ public class GlobalHelper {
         return bytes;
     }
 
+    public String messageError(String error, Context context) {
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(error);
+            String userMessage = jsonObject.getString("message");
+            return userMessage;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return context.getString(R.string.server_error);
+        }
+    }
+
     public boolean isEmailValid(String email) {
         String regExpn =
                 "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
@@ -202,5 +224,12 @@ public class GlobalHelper {
         YoYo.with(Techniques.Tada)
                 .duration(700)
                 .playOn(view);
+    }
+
+    public static Intent launchDirection(String latitude, String longitude) {
+        String strUri = "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude;
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(strUri));
+        intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+        return intent;
     }
 }

@@ -1,5 +1,7 @@
 package id.lima.baseapp.ui.splash;
 
+import java.io.IOException;
+
 import id.lima.baseapp.R;
 import id.lima.baseapp.data.Data;
 import id.lima.baseapp.util.GlobalHelper;
@@ -32,16 +34,18 @@ public class SplashPresenter implements SplashContract.Presenter {
         call = Data.getInstance(view.getContext()).requestLogin(username, password, new Callback<UserInfo>() {
             @Override
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
-                if (response != null && response.isSuccessful()) {
-                    UserInfo userInfo = response.body();
-                    if (userInfo != null) {
-                        view.showLoginSuccess();
-                    } else {
-//                        view.showLoginError(response.body().getStatusMessage());
-                    }
-                } else {
-                    view.showLoginError(view.getContext().getString(R.string.server_error));
-                }
+//                if (response != null && response.isSuccessful()) {
+//                    if (response.body()) {
+//                        view.showReqLoginSuccess(response.body());
+//                    } else
+//                        view.showReqLoginError(response.body().message);
+//                } else {
+//                    try {
+//                        view.showReqLoginError(GlobalHelper.getInstance().messageError(response.errorBody().string(), view.getContext()));
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
             }
 
             @Override
