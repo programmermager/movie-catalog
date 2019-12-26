@@ -8,6 +8,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -61,6 +62,7 @@ dependencies {
     implementation "com.facebook.stetho:stetho:$rootProject.ext.stethoVersion"
     implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stethoVersion"
 
+    implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
