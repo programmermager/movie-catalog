@@ -72,7 +72,7 @@ public class Data {
 
             @Override
             public void onFailure(Call<UserInfo> call, Throwable t) {
-                callback.onFailure(call, t);
+                if(!call.isCanceled()) callback.onFailure(call, t);
             }
         });
         return call;
