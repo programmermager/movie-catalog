@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Base App</string>
+    <string name="app_name">Movie Catalog</string>
     <string name="try_again">Coba Lagi</string>
     <string name="close">Tutup</string>
     <string name="yes">Ya</string>

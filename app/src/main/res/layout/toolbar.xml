@@ -3,16 +3,17 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     android:elevation="@dimen/_3sdp">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/glacial_bold"
         android:gravity="center"
         android:text="Toolbar"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/_12sdp"
         android:visibility="visible" />
 </androidx.appcompat.widget.Toolbar>

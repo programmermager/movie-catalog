@@ -1,14 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "id.lima.baseapp"
+        applicationId "id.lima.moviecatalog"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+        buildConfigField "String", "API_KEY", '"f7d4121bc67884772e4bce35c0495d60"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,19 +25,6 @@ android {
             minifyEnabled false
         }
 
-    }
-    flavorDimensions "alfthstd"
-    productFlavors {
-        dev {
-            dimension "alfthstd"
-            applicationId 'id.lima.baseappdev'
-            buildConfigField "String", "BASE_URL", '"https://api-sandbox.tiket.com/"'
-        }
-        prod {
-            dimension "alfthstd"
-            applicationId "id.lima.baseapp"
-            buildConfigField "String", "BASE_URL", '"https://api.tiket.com/"'
-        }
     }
 
     compileOptions {
@@ -79,4 +70,9 @@ dependencies {
 
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

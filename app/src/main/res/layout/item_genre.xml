@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/_10sdp"
+    android:background="@drawable/ic_bg_genre"
+    android:paddingLeft="@dimen/_10sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingRight="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_5sdp">
+
+    <TextView
+        android:id="@+id/tvItemGenre"
+        android:layout_width="wrap_content"
+        android:textColor="#F17F20"
+        android:fontFamily="@font/glacial_bold"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Item" />
+</RelativeLayout>
